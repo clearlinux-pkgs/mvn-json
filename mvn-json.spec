@@ -4,12 +4,14 @@
 #
 Name     : mvn-json
 Version  : 1.0.4
-Release  : 1
+Release  : 2
 URL      : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source0  : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar
 Source2  : https://repo1.maven.org/maven2/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.pom
 Source3  : https://repo1.maven.org/maven2/org/glassfish/json/1.0.4/json-1.0.4.pom
+Source4  : https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.jar
+Source5  : https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CDDL-1.1 GPL-2.0
@@ -32,13 +34,19 @@ data components for the mvn-json package.
 
 %install
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/json/1.0.4
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/json/1.0.4
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/json/1.0.4/json-1.0.4.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.pom
 
 
 %files
@@ -49,3 +57,5 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/json/1.0.
 /usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar
 /usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.pom
 /usr/share/java/.m2/repository/org/glassfish/json/1.0.4/json-1.0.4.pom
+/usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.jar
+/usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.pom
