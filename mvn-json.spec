@@ -4,7 +4,7 @@
 #
 Name     : mvn-json
 Version  : 1.0.4
-Release  : 2
+Release  : 3
 URL      : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source0  : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar
