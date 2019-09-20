@@ -4,7 +4,7 @@
 #
 Name     : mvn-json
 Version  : 1.0.4
-Release  : 5
+Release  : 6
 URL      : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source0  : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar
@@ -14,14 +14,17 @@ Source4  : https://repo1.maven.org/maven2/org/json/json/20080701/json-20080701.j
 Source5  : https://repo1.maven.org/maven2/org/json/json/20080701/json-20080701.pom
 Source6  : https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.jar
 Source7  : https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.pom
-Source8  : https://repo1.maven.org/maven2/org/json/json/20141113/json-20141113.jar
-Source9  : https://repo1.maven.org/maven2/org/json/json/20141113/json-20141113.pom
-Source10  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.jar
-Source11  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.pom
+Source8  : https://repo1.maven.org/maven2/org/json/json/20140107/json-20140107.jar
+Source9  : https://repo1.maven.org/maven2/org/json/json/20140107/json-20140107.pom
+Source10  : https://repo1.maven.org/maven2/org/json/json/20141113/json-20141113.jar
+Source11  : https://repo1.maven.org/maven2/org/json/json/20141113/json-20141113.pom
+Source12  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.jar
+Source13  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CDDL-1.1 GPL-2.0
 Requires: mvn-json-data = %{version}-%{release}
+Requires: mvn-json-license = %{version}-%{release}
 BuildRequires : apache-maven
 BuildRequires : buildreq-mvn
 
@@ -36,12 +39,22 @@ Group: Data
 data components for the mvn-json package.
 
 
+%package license
+Summary: license components for the mvn-json package.
+Group: Default
+
+%description license
+license components for the mvn-json package.
+
+
 %prep
 %setup -q -n jsonp-jsonp-1.0.4
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-json
+cp bundles/ri/src/main/resources/LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-json/bundles_ri_src_main_resources_LICENSE.txt
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar
 
@@ -63,17 +76,23 @@ cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211/
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211
 cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.pom
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113
-cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20140107
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20140107/json-20140107.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20140107
+cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20140107/json-20140107.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113
-cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.pom
+cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113
+cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212
-cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.jar
+cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212
-cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.pom
+cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.pom
 
 
 %files
@@ -88,7 +107,13 @@ cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212
 /usr/share/java/.m2/repository/org/json/json/20080701/json-20080701.pom
 /usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.jar
 /usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.pom
+/usr/share/java/.m2/repository/org/json/json/20140107/json-20140107.jar
+/usr/share/java/.m2/repository/org/json/json/20140107/json-20140107.pom
 /usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.jar
 /usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.pom
 /usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.jar
 /usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-json/bundles_ri_src_main_resources_LICENSE.txt
