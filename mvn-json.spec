@@ -4,7 +4,7 @@
 #
 Name     : mvn-json
 Version  : 1.0.4
-Release  : 4
+Release  : 5
 URL      : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source0  : https://github.com/javaee/jsonp/archive/jsonp-1.0.4.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar
@@ -14,12 +14,16 @@ Source4  : https://repo1.maven.org/maven2/org/json/json/20080701/json-20080701.j
 Source5  : https://repo1.maven.org/maven2/org/json/json/20080701/json-20080701.pom
 Source6  : https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.jar
 Source7  : https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.pom
-Source8  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.jar
-Source9  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.pom
+Source8  : https://repo1.maven.org/maven2/org/json/json/20141113/json-20141113.jar
+Source9  : https://repo1.maven.org/maven2/org/json/json/20141113/json-20141113.pom
+Source10  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.jar
+Source11  : https://repo1.maven.org/maven2/org/json/json/20160212/json-20160212.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CDDL-1.1 GPL-2.0
 Requires: mvn-json-data = %{version}-%{release}
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 * javax.json-1.0.jar contains both "JSR 353 : Java API for JSON Processing" API and its default provider implementation. Keep it in classpath for both compiling and running your application.
@@ -59,11 +63,17 @@ cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211/
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211
 cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.pom
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212
-cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113
+cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212
-cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.pom
+cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212
+cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.pom
 
 
 %files
@@ -78,5 +88,7 @@ cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/org/json/json/20160212/
 /usr/share/java/.m2/repository/org/json/json/20080701/json-20080701.pom
 /usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.jar
 /usr/share/java/.m2/repository/org/json/json/20090211/json-20090211.pom
+/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.jar
+/usr/share/java/.m2/repository/org/json/json/20141113/json-20141113.pom
 /usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.jar
 /usr/share/java/.m2/repository/org/json/json/20160212/json-20160212.pom
